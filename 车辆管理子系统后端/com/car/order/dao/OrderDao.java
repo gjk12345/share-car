@@ -25,4 +25,7 @@ public class OrderDao extends BaseDao<Order>{
 	public List<Order> getByTime(String time,int page,int total){//根据开始和结束时间查找
 		return this.page("from Order where starttime<? and endtime>?",page,total, time,time);
 	}
+	public void add(Order o) {
+		this.save(o);
+	}
 }

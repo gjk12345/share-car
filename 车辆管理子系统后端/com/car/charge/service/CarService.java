@@ -24,4 +24,7 @@ public class CarService {
 		List<Car> list=cardao.findAll(page, total);
 		return list;
 	}
+	public void addCar(Car c) {
+		cardao.add(c);
+	}
 }

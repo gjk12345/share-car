@@ -38,4 +38,7 @@ public class OrderService {
 		List<Order> list=orderdao.getByTime(time, page, total);
 		return list;
 	}
+	public void addOrder(Order o) {
+		orderdao.add(o);
+	}
 }

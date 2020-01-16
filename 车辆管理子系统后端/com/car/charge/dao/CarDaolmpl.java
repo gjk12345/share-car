@@ -17,4 +17,7 @@ public class CarDaolmpl extends BaseDao<Car>{
 	public List<Car> findAll(int page,int total){//根据页数查找
 		return this.page("from Car",page,total);
 	}
+	public void add(Car c) {
+		this.save(c);
+	}
 }

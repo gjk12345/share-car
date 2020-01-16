@@ -3,6 +3,7 @@ package com.car.order.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,15 +20,16 @@ public class OrderController {
 	@Resource
 	private OrderService orderservice;
 	
-	@RequestMapping(value="/addOrder")
-	public String addOrder(@RequestBody JSONObject json) {
+	@RequestMapping(value="/addOrder")//添加订单
+	public String addOrder(HttpServletRequest request,Order o) {
+		orderservice.addOrder(o);
 		return " ";
 	}
-	@RequestMapping(value="/delOrder")
+	@RequestMapping(value="/delOrder")//删除订单
 	public String delOrder(@RequestBody JSONObject json) {
 		return " ";
 	}
-	@RequestMapping(value="/getOrderByOid")
+	@RequestMapping(value="/getOrderByOid")//通过id获取订单
 	public String getOrderByOid(@RequestBody JSONObject json) {
 		int id = json.getInt("id");
 		Order o=orderservice.getListById(id);
